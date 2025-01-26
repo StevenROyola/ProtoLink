@@ -1,0 +1,77 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - localTimezone
+      - twitterUsername
+      - twitterPassword
+      - twitterEmail
+      - twitterApiKey
+      - twitterApiSecret
+      - twitterAccessToken
+      - twitterAccessSecret
+      - twitterClientId
+      - twitterClientSecret
+      - twitterBearerToken
+      - elizaPath
+      - elizaApiUrl
+      - personalityConfig
+      - anthropicApiKey
+      - runAgent
+    properties:
+      localTimezone:
+        type: string
+        description: The local timezone for the server.
+      twitterUsername:
+        type: string
+        description: Twitter username for Twitter integration.
+      twitterPassword:
+        type: string
+        description: Twitter password for Twitter integration.
+      twitterEmail:
+        type: string
+        description: Twitter email for Twitter integration.
+      twitterApiKey:
+        type: string
+        description: Twitter API key for Twitter integration.
+      twitterApiSecret:
+        type: string
+        description: Twitter API secret for Twitter integration.
+      twitterAccessToken:
+        type: string
+        description: Twitter access token for Twitter integration.
+      twitterAccessSecret:
+        type: string
+        description: Twitter access secret for Twitter integration.
+      twitterClientId:
+        type: string
+        description: Twitter client ID for Twitter integration.
+      twitterClientSecret:
+        type: string
+        description: Twitter client secret for Twitter integration.
+      twitterBearerToken:
+        type: string
+        description: Twitter bearer token for Twitter integration.
+      elizaPath:
+        type: string
+        description: Path to the Eliza installation.
+      elizaApiUrl:
+        type: string
+        description: API URL for the Eliza integration.
+      personalityConfig:
+        type: string
+        description: Path to the personality config JSON.
+      anthropicApiKey:
+        type: string
+        description: API key for Anthropic integration.
+      runAgent:
+        type: boolean
+        description: Flag to run the agent.
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({command: 'mcpagentai', args: [], env: {LOCAL_TIMEZONE: config.localTimezone, TWITTER_USERNAME: config.twitterUsername, TWITTER_PASSWORD: config.twitterPassword, TWITTER_EMAIL: config.twitterEmail, TWITTER_API_KEY: config.twitterApiKey, TWITTER_API_SECRET: config.twitterApiSecret, TWITTER_ACCESS_TOKEN: config.twitterAccessToken, TWITTER_ACCESS_SECRET: config.twitterAccessSecret, TWITTER_CLIENT_ID: config.twitterClientId, TWITTER_CLIENT_SECRET: config.twitterClientSecret, TWITTER_BEARER_TOKEN: config.twitterBearerToken, ELIZA_PATH: config.elizaPath, ELIZA_API_URL: config.elizaApiUrl, PERSONALITY_CONFIG: config.personalityConfig, ANTHROPIC_API_KEY: config.anthropicApiKey, RUN_AGENT: config.runAgent ? 'True' : 'False'}})
