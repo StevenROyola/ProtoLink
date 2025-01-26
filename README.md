@@ -1,5 +1,6 @@
-
 # ProtoLinkAI 🚀 
+
+[![smithery badge](https://smithery.ai/badge/@StevenROyola/ProtoLink)](https://smithery.ai/server/@StevenROyola/ProtoLink)
 
 **ProtoLink AI** is a standardized **tool wrapping framework** for implementing and managing diverse tools in a unified way. It is designed to help developers quickly integrate and launch tool-based use cases.
 
@@ -39,6 +40,14 @@ Here’s why **MCP** matters:
 ---
 
 ## Installation 📦
+
+### Installing via Smithery
+
+To install ProtoLinkAI for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@StevenROyola/ProtoLink):
+
+```bash
+npx -y @smithery/cli install @StevenROyola/ProtoLink --client claude
+```
 
 ### Install via PyPI
 ```bash
